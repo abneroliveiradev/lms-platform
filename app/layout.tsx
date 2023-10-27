@@ -1,3 +1,5 @@
+// import { ConfettiProvider } from "@/components/providers/confetti-provider";
+import { ToastProvider } from "@/components/providers/toaster-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,13 +18,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider
-    /* appearance={{
-        baseTheme: neobrutalism,
-      }} */
-    >
+    <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body className={inter.className}>
+          {/* <ConfettiProvider /> */}
+          <ToastProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
